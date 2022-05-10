@@ -1,0 +1,15 @@
+Skips booting Linux, forcing mt_boot_init to enter fastboot mode instead
+
+See app/mt_boot/mt_boot.c:1896; call to boot_linux_from_storage() is removed
+
+--- /proc/self/fd/14	2022-05-09 10:27:32.276969235 +0200
++++ /proc/self/fd/16	2022-05-09 10:27:32.276969235 +0200
+@@ -9668,7 +9668,7 @@
+ 00025c30: 2878 0af0 fffd 90b3 0134 132c 07d0 17f8  (x.......4.,....
+ 00025c40: 010f 10f0 df0f f4d1 132c 28bf 1324 334a  .........,(..$3J
+ 00025c50: 0020 334b 2855 7a44 1561 f358 1b68 632b  . 3K(UzD.a.X.hc+
+-00025c60: 04d0 31f0 1dff a8b9 fff7 34fe daf7 6cfb  ..1.......4...l.
++00025c60: 04d0 31f0 1dff a8b9 00bf 00bf daf7 6cfb  ..1...........l.
+ 00025c70: 2c48 7844 1ef0 f2f8 1ff0 98fc fcf7 c6f8  ,HxD............
+ 00025c80: 0446 def7 dbfb 2146 00f0 80fd bde8 f840  .F....!F.......@
+ 00025c90: 1ef0 ceb9 244b 0322 f358 1a60 e4e7 3878  ....$K.".X.`..8x
