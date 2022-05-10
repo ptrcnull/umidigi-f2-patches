@@ -2,6 +2,7 @@ Skips booting Linux, forcing mt_boot_init to enter fastboot mode instead
 
 See app/mt_boot/mt_boot.c:1896; call to boot_linux_from_storage() is removed
 
+Applies directly to lk.img
 --- /proc/self/fd/14	2022-05-09 10:27:32.276969235 +0200
 +++ /proc/self/fd/16	2022-05-09 10:27:32.276969235 +0200
 @@ -9668,7 +9668,7 @@
