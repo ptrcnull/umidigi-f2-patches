@@ -1,0 +1,18 @@
+Skips reading the misc partition, which contains info passed from the bootloader.
+In my case, allows for using ADB instead of getting "Cannot load Android system"
+after the ["Rescue Party"][1] tried to "recover" my phone.
+
+Applies to /system/bin/recovery found on the ramdisk of recovery.img
+
+[1]: https://source.android.com/devices/tech/debug/rescue-party
+--- /proc/self/fd/14	2022-05-10 09:41:17.534669994 +0200
++++ /proc/self/fd/16	2022-05-10 09:41:17.534669994 +0200
+@@ -31900,7 +31900,7 @@
+ 0007c9b0: ffc3 02d1 f73b 00f9 f657 08a9 f44f 09a9  .....;...W...O..
+ 0007c9c0: fd7b 0aa9 fd83 0291 55d0 3bd5 b600 00f0  .{......U.;.....
+ 0007c9d0: a816 40f9 a883 1cf8 c802 40b9 1f15 0071  ..@.......@....q
+-0007c9e0: 6120 0054 e800 00d0 0881 1291 08fd df08  a .T............
++0007c9e0: 0301 0014 e800 00d0 0881 1291 08fd df08  ................
+ 0007c9f0: e823 0036 e000 00d0 0020 1291 ab33 0094  .#.6..... ...3..
+ 0007ca00: 0003 0036 e9a5 8d52 ff7f 05a9 e000 00d0  ...6...R........
+ 0007ca10: ff33 00f9 4801 8052 296d ae72 6a0c 8052  .3..H..R)m.rj..R
